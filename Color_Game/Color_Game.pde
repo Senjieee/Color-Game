@@ -3,6 +3,22 @@
 //Oct 3 2022
 //Color Game
 
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+PFont WashYourHand;
+
+PImage[] gif;
+int numberOfFrames;
+int f;
+
+Minim minim;
+AudioPlayer Music, Failure, Success;
+
 color red = color(255, 0, 0);
 color blue = color(24, 0, 255);
 color yellow = color(255, 247, 0);
@@ -23,6 +39,23 @@ void setup() {
   mode = intro;
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
+  
+  WashYourHand = createFont("WashYourHand.ttf", 200);
+  textFont(WashYourHand);
+  
+  minim = new Minim(this);
+  Music = minim.loadFile("MUSIC.mp3");
+  Failure = minim.loadFile("FAILURE.wav");
+  Success = minim.loadFile("SUCCESS.wav");
+  
+  numberOfFrames = 12;
+  gif = new PImage[numberOfFrames];
+  
+  int i = 0;
+  while (i < numberOfFrames) {
+    gif[i] = loadImage("frame_"+i+"_delay-0.06s.png");
+    i = i + 1;
+  }
 }
 
 void draw() {
