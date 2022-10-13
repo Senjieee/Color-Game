@@ -15,6 +15,7 @@ PFont WashYourHand;
 PImage[] gif;
 int numberOfFrames;
 int f;
+float c;
 
 Minim minim;
 AudioPlayer Music, Failure, Success;
@@ -28,6 +29,9 @@ color purple = color(195, 0, 255);
 color grey = color(59, 53, 54);
 color black = color(0);
 color white = color(255);
+color tactile2 = color(209, 199, 107);
+color tactile;
+color start;
 
 int mode;
 final int intro = 0;
@@ -35,7 +39,7 @@ final int game = 1;
 final int gameOver = 2;
 
 void setup() {
-  size(800, 800);
+  size(800, 650);
   mode = intro;
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
@@ -68,4 +72,33 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
+}
+
+boolean touchingSquare(int x, int y, int w, int h) {
+  if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean touchingCircle(int x, int y, int r) {
+  if (dist(x, y, mouseX, mouseY) < r) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+void circleButton(int x, int y) {
+  pushMatrix();
+  translate(x, y);
+  strokeWeight(5);
+  stroke(start);
+  fill(white);
+  circle(0, 0, 150);
+  fill(start);
+  rect(-15, 0, 80, 20);
+  triangle(50, 0, 20, -20, 20, 20);
+  popMatrix();
 }
