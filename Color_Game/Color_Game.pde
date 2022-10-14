@@ -38,6 +38,14 @@ final int intro = 0;
 final int game = 1;
 final int gameOver = 2;
 
+int score, best;
+
+int randomWord = (int) random(0, 6);
+int randomColor = (int) random(0, 6);
+
+String[] words = {"RED", "BLUE", "YELLOW", "GREEN", "ORANGE", "PURPLE"};
+color[] colors = {red, blue, yellow, green, orange, purple};
+
 void setup() {
   size(800, 650);
   mode = intro;
@@ -72,6 +80,14 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
+  
+  c = random(1, 60);
+  if (c > 0 && c < 11) tactile = red;
+  if (c > 10 && c < 21) tactile = blue;
+  if (c > 20 && c < 31) tactile = yellow;
+  if (c > 30 && c < 41) tactile = green;
+  if (c > 40 && c < 51) tactile = orange;
+  if (c > 50 && c < 61) tactile = purple;
 }
 
 boolean touchingSquare(int x, int y, int w, int h) {
