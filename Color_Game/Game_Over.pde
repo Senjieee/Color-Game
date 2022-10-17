@@ -1,4 +1,5 @@
 void gameOver() {
+  Music.rewind();
   background(red);
   fill(white);
   textSize(100);
@@ -13,10 +14,13 @@ void gameOver() {
   } else {
     start = black;
   }
+  
+  x = -100;
 }
 
 void gameOverClicks() {
   if (touchingCircle(650, 450, 85)) {
     mode = intro;
+    score = 0;
   }
 }

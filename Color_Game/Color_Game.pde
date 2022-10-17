@@ -38,10 +38,13 @@ final int intro = 0;
 final int game = 1;
 final int gameOver = 2;
 
+int x;
 int score, best;
 
 int randomWord = (int) random(0, 6);
 int randomColor = (int) random(0, 6);
+
+boolean match;
 
 String[] words = {"RED", "BLUE", "YELLOW", "GREEN", "ORANGE", "PURPLE"};
 color[] colors = {red, blue, yellow, green, orange, purple};
@@ -67,6 +70,17 @@ void setup() {
   while (i < numberOfFrames) {
     gif[i] = loadImage("frame_"+i+"_delay-0.06s.png");
     i = i + 1;
+  }
+  
+  x = -100;
+  
+  score = 0;
+  best = 0;
+  
+  if (randomWord == randomColor) {
+    match = true;
+  } else {
+    match = false;
   }
 }
 

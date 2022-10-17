@@ -1,4 +1,5 @@
-void intro() {
+ void intro() {
+  Music.play();
   image(gif[f], 0, 0, width, height + 300);
   println(frameCount);
   if(frameCount % 1 == 0) f = f + 1;
