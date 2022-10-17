@@ -29,8 +29,7 @@ void gameClicks() {
     Success.rewind();
     Success.play();
     x = -100;
-    randomWord = (int) random(0, 6);
-    randomColor = (int) random(0, 6);
+    random();
     if (randomWord == randomColor) {
       match = true;
     } else {
@@ -40,5 +39,6 @@ void gameClicks() {
     mode = gameOver;
     Failure.rewind();
     Failure.play();
+    random();
   }
 }

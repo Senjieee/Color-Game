@@ -16,6 +16,7 @@ PImage[] gif;
 int numberOfFrames;
 int f;
 float c;
+int r;
 
 Minim minim;
 AudioPlayer Music, Failure, Success;
@@ -41,8 +42,9 @@ final int gameOver = 2;
 int x;
 int score, best;
 
-int randomWord = (int) random(0, 6);
-int randomColor = (int) random(0, 6);
+
+int randomWord;
+int randomColor;
 
 boolean match;
 
@@ -76,6 +78,8 @@ void setup() {
   
   score = 0;
   best = 0;
+
+  random();
   
   if (randomWord == randomColor) {
     match = true;
@@ -131,4 +135,14 @@ void circleButton(int x, int y) {
   rect(-15, 0, 80, 20);
   triangle(50, 0, 20, -20, 20, 20);
   popMatrix();
+}
+
+void random() {
+  randomColor = (int) random(0, 6);
+  r = (int) random(1, 10);
+  if (r > 0 && r < 7) {
+    randomWord = (int) random(0, 6);
+  } else {
+    randomWord = randomColor;
+  }
 }
