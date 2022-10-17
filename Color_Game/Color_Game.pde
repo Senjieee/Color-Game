@@ -133,3 +133,18 @@ void random() {
     randomWord = randomColor;
   }
 }
+
+void correct() {
+  score++;
+  Success.rewind();
+  Success.play();
+  x = -100;
+  random();
+}
+
+void incorrect() {
+  mode = gameOver;
+  Failure.rewind();
+  Failure.play();
+  random();
+}

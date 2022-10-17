@@ -16,9 +16,7 @@ void game() {
   x = x + 10;
   
   if (x > 950) {
-    mode = gameOver;
-    Failure.rewind();
-    Failure.play();
+    incorrect();
   }
   if (score > best) best = score;
   
@@ -31,20 +29,16 @@ void game() {
 
 void gameClicks() {
   if(mouseX < 400 && match == true || mouseX > 400 && match == false) {
-    score++;
-    Success.rewind();
-    Success.play();
-    x = -100;
-    random();
-    if (randomWord == randomColor) {
-      match = true;
-    } else {
-      match = false;
-    }
+    correct();
   } else {
-    mode = gameOver;
-    Failure.rewind();
-    Failure.play();
-    random();
+    incorrect();
+  }
+}
+
+void gamePress() {
+  if(lkey == true && match == true || rkey == true && match == false) {
+    correct();
+  } else if(match == true && rkey == true || match == false && lkey == true) {
+    incorrect();
   }
 }
