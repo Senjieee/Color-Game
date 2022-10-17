@@ -21,6 +21,12 @@ void game() {
     Failure.play();
   }
   if (score > best) best = score;
+  
+  if (randomWord == randomColor) {
+    match = true;
+  } else {
+    match = false;
+  }
 }
 
 void gameClicks() {

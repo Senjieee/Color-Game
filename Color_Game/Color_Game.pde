@@ -47,6 +47,7 @@ int randomWord;
 int randomColor;
 
 boolean match;
+boolean lkey, rkey;
 
 String[] words = {"RED", "BLUE", "YELLOW", "GREEN", "ORANGE", "PURPLE"};
 color[] colors = {red, blue, yellow, green, orange, purple};
@@ -80,12 +81,6 @@ void setup() {
   best = 0;
 
   random();
-  
-  if (randomWord == randomColor) {
-    match = true;
-  } else {
-    match = false;
-  }
 }
 
 void draw() {
@@ -106,14 +101,6 @@ void draw() {
   if (c > 30 && c < 41) tactile = green;
   if (c > 40 && c < 51) tactile = orange;
   if (c > 50 && c < 61) tactile = purple;
-}
-
-boolean touchingSquare(int x, int y, int w, int h) {
-  if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 boolean touchingCircle(int x, int y, int r) {
@@ -138,10 +125,10 @@ void circleButton(int x, int y) {
 }
 
 void random() {
-  randomColor = (int) random(0, 6);
+  randomColor = (int) random(0, 5);
   r = (int) random(1, 10);
   if (r > 0 && r < 7) {
-    randomWord = (int) random(0, 6);
+    randomWord = (int) random(0, 5);
   } else {
     randomWord = randomColor;
   }
