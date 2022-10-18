@@ -47,7 +47,6 @@ int randomWord;
 int randomColor;
 
 boolean match;
-boolean lkey, rkey;
 
 String[] words = {"RED", "BLUE", "YELLOW", "GREEN", "ORANGE", "PURPLE"};
 color[] colors = {red, blue, yellow, green, orange, purple};

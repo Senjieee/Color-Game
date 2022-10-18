@@ -36,9 +36,8 @@ void gameClicks() {
 }
 
 void gamePress() {
-  if(lkey == true && match == true || rkey == true && match == false) {
-    correct();
-  } else if(match == true && rkey == true || match == false && lkey == true) {
+  if (keyCode == LEFT && match == true || keyCode == RIGHT && match == false) correct();
+  else {
     incorrect();
   }
 }
